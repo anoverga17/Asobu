@@ -15,7 +15,7 @@ Expression = Value; |
              (Expression * Expression); |
              (Expression / Expression); |
 ```
-**Currently only plain values can be evaluated. The functions do not yet work.**
+Currently only plain values can be evaluated. **The functions do not yet work.** \
 More language features will be added in the future. 
 
 ## Running
