@@ -5,7 +5,7 @@ This is an interpreter for Asobu, a toy programming language. The compiler is ca
 is to implement a simple functional programming language with support for basic numeric operations. 
 
 ## Specifications
-The following is the current valid syntax for Asobu version 0.01 
+The following is the current valid syntax for Asobu version 0.00 
 ```
 Value = Num 
   
