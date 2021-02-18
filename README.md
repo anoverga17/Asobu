@@ -12,7 +12,7 @@ Value = Num
 Term =  Num 
        |(Expression)
   
-Expression = Symbol 
+Expression = Term
             | Expression + Term 
             | Expression - Term 
 ```
