@@ -8,12 +8,13 @@ is to implement a simple functional programming language with support for basic 
 The following is the current syntax specification for Asobu version 0.01 
 ```
 Value = Num 
+
+Term =  Num 
+       |(Expression)
   
-Expression = Value; |
-             (Expression + Expression); |
-             (Expression - Expression); |
-             (Expression * Expression); |
-             (Expression / Expression); |
+Expression = Symbol 
+            | Expression + Term 
+            | Expression - Term 
 ```
 Currently only plain values can be evaluated. **The functions do not yet work.** \
 More language features will be added in the future. 
