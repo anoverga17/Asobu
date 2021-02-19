@@ -2,14 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-#include <regex.h>
+#include <ctype.h>
 
-typedef struct {
-	regex_t value;
-	regex_t addition;
-	regex_t subtraction;
-	regex_t multiplication;
-	regex_t division;
-} Patterns;
+#ifndef LINE_LEN
+#define LINE_LEN 118
+#endif
 
+double eval_term(char *line, int *i);
+double eval_expr(char *line, int *i);
 void parse(const char *filename);
