@@ -16,7 +16,7 @@ Expression = Term
             | Expression + Term 
             | Expression - Term 
 ```
-Currently only plain values can be evaluated. **The functions do not yet work.** \
+Currently only binary addition/subtraction can be evaluated. **Multiple nested expressions is not yet supported** \
 More language features will be added in the future. 
 
 ## Running
