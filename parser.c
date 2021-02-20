@@ -37,6 +37,9 @@ double _eval_builtin(char *line, int *i) {
 	op[4] = '\0'; 
 	*i += 3; 
 	double val2 = eval_expr(line, i);
+	if (line[*i] == ')') {
+		*i += 1;
+	}
 	if (strcmp(op, " + ") == 0) {
 		return val1 + val2;
 	} else if (strcmp(op, " - ") == 0) {
@@ -44,7 +47,7 @@ double _eval_builtin(char *line, int *i) {
 	} else if (strcmp(op, " * ") == 0) {
 		return val1 * val2;
 	} else if (strcmp(op, " / ") == 0) {
-		if (val2 == 0) {
+		if (val2 == 0.0) {
 			perror("Zero Division Error");
 			exit(1);
 		} else {
