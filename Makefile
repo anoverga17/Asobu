@@ -6,4 +6,4 @@ interpreter: parser.c interpreter.c
 .PHONY: clean all
 
 clean:	
-	rm interpreter
+	rm gai
