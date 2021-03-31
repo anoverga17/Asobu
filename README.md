@@ -15,8 +15,8 @@ Expression = Value                    # literal expression
            | Expression - Expression  # subtract expression (left precedence)
            | Expression * Expression  # multiply expression (right precedence)
            | Expression / Expression  # divide expression (right precedence)
-           | lambda ID { Expression } # lambda expression
-           | Expression << Expression # apply expression (right precedence)
+           | lambda (ID) { Expression } # lambda expression
+           | Expression << Expression # apply expression (left precedence)
            | (Expression)           
            ;
 ```

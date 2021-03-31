@@ -48,7 +48,7 @@ class CalcParser(Parser):
     precedence = (
         ('left', PLUS, MINUS),
         ('left', TIMES, DIVIDE),
-        ('right', FEED),
+        ('left', FEED),
         ('right', UMINUS)
         )
 
@@ -56,7 +56,7 @@ class CalcParser(Parser):
     def statement(self, p):
         print(p.expr.eval({}))
 
-    @_('LAMBDA ID LBRACK expr RBRACK')
+    @_('LAMBDA LPAREN ID RPAREN LBRACK expr RBRACK')
     def expr(self, p):
         return Lambda(p.ID, p.expr)
 
