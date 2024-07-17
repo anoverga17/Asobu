@@ -1,0 +1,12 @@
+
+func combine(a, b):
+	a + b + 2
+end
+
+func main():
+	let a = lambda(x):
+				combine(x, 78)
+			end
+	let t = 9
+	a(2) + t
+end

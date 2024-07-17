@@ -1,0 +1,15 @@
+func main():
+	let a = lambda(x):
+		let a = 78
+		let v = 55
+		a + v*v + b
+	end
+	let b = 56
+	if (true or !false): 
+		a(b) + b + 45
+	else:
+		func trudy():
+			0
+		end
+	end != 0
+end
