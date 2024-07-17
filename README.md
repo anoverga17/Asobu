@@ -2,23 +2,51 @@
 
 ## About
 This is an interpreter for Asobu, a toy programming language. The current goal 
-is to implement a simple functional programming language with support for basic numeric operations. 
+is to implement a simple functional programming language with support for basic numeric operations and if expressions. 
 
 ## Specifications
-The following is the current syntax specification for Asobu version 0.1 
+The following is the current syntax specification for Asobu version 1.0
 ```
-Value = Num 
-  
-Expression = Value                    # literal expression
-           | ID                       # id expression
-           | Expression + Expression  # add expression (left precedence)
-           | Expression - Expression  # subtract expression (left precedence)
-           | Expression * Expression  # multiply expression (right precedence)
-           | Expression / Expression  # divide expression (right precedence)
-           | lambda (ID) { Expression } # lambda expression
-           | Expression << Expression # apply expression (left precedence)
-           | (Expression)           
-           ;
+expr:
+	arith_expr
+	bool_expr
+	'lambda' func_def
+	'if' '(' bool_expr ')' ':' scope ('else' ':' scope)? 'end'
+	var
+
+arith_expr
+	: INT
+	| -arith_expr
+	| arith_expr + arith_expr
+	| arith_expr - arith_expr
+	| arith_expr / arith_expr
+	| arith_expr * arith_expr
+	| arith_expr % arith_expr
+	;
+
+bool_expr
+	: true
+	| false
+	| !bool_expr
+	| bool_expr 'and' bool_expr
+	| bool_expr 'or' bool_expr
+	| arith_expr '<' arith_expr
+	| expr '==' expr
+	| expr '!=' expr
+	;
+
+assignment_stmt
+	: 'let' varname '=' expr '\n'
+	| 'func' varname func_def '\n'
+	;
+
+func_def
+	: '(' param* ')' ':' scope 'end'
+	;
+
+scope:
+	| assignment_stmt* expr
+	; 
 ```
 More language features will be added in the future. 
 
